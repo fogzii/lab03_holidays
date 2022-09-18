@@ -46,8 +46,10 @@ For this exercise, we will be using the following libraries:
 
 1. You can install all three packages in one command with:
     ```shell
-    $ npm i date-fns date-fns-holiday-us prompt-sync
+    $ npm i date-fns date-fns-holiday-us@0.2.1 prompt-sync
     ```
+    Note that for date-fns-holiday-us, we are installing the specific version 0.2.1.
+
 1. Open [package.json](package.json) and ensure that these packages appear under the key `"dependencies"`, e.g
     ```json
     // Note: Your version number may differ
