@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { getValentinesDay, getChristmas, getEaster } from 'date-fns-holiday-us';
-import ps from 'prompt-sync';
+import promptSync from 'prompt-sync';
 
 const getHoliday = (f, year) => format(f(year), 'EEEE, dd.MM.yyyy');
 
@@ -20,7 +20,7 @@ export function holidaysInRange(start, end) {
 }
 
 export function main() {
-  const prompt = ps();
+  const prompt = promptSync();
   const start = parseInt(prompt('Enter start: '));
   const end = parseInt(prompt('Enter end: '));
   const holidays = holidaysInRange(start, end);
