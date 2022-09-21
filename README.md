@@ -79,7 +79,7 @@ For this exercise, we will be using the following libraries:
         <ul>
             <li>If <code>start</code> is not at least 325, return an empty array.</li>
             <li>If <code>start</code> is strictly greater than <code>end</code>, return an empty array.</li>
-            <li>Otherwise, return an <code>object</code> containing information about the Valentine,
+            <li>Otherwise, return an array of objects containing information about the Valentine,
           Easter and Christmas date strings in the given (inclusive) range.</li>
         </ul>
         <b>Difficulty</b>: ⭐⭐⭐
