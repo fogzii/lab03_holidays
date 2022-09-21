@@ -5,7 +5,7 @@ import promptSync from 'prompt-sync';
  * Given a starting year and an ending year:
  * - If `start` is not at least 325, return an empty array.
  * - If `start` is strictly greater than `end`, return an empty array.
- * - Otherwise, return an object containing information about the valentine,
+ * - Otherwise, return an array of objects containing information about the valentine,
  * easter and christmas date strings in the given (inclusive) range.
  *
  * An example format for christmas in 1970 is
