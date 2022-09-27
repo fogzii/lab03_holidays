@@ -1,4 +1,4 @@
-import { holidaysInRange, main } from './holidays';
+import { holidaysInRange } from './holidays';
 
 test('Example - replace me', () => {
   expect(holidaysInRange(1970, 1972)).toStrictEqual([
