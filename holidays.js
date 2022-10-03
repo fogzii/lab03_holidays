@@ -1,5 +1,7 @@
 // TODO: Add more imports here.
 import promptSync from 'prompt-sync';
+import { format } from 'date-fns';
+import { getValentinesDay, getEaster, getChristmas } from 'date-fns-holiday-us';
 
 /**
  * Given a starting year and an ending year:
@@ -16,25 +18,23 @@ import promptSync from 'prompt-sync';
  * @returns {Array<{valentinesDay: string, easter: string, christmas: string}>}
  */
 export function holidaysInRange(start, end) {
-  // TODO:
-  return [
-    // Example for start=1970, end=1972
-    {
-      valentinesDay: 'Saturday, 14.02.1970',
-      easter: 'Sunday, 29.03.1970',
-      christmas: 'Friday, 25.12.1970',
-    },
-    {
-      valentinesDay: 'Sunday, 14.02.1971',
-      easter: 'Sunday, 11.04.1971',
-      christmas: 'Saturday, 25.12.1971',
-    },
-    {
-      valentinesDay: 'Monday, 14.02.1972',
-      easter: 'Sunday, 02.04.1972',
-      christmas: 'Monday, 25.12.1972',
-    }
-  ];
+  if (start < 325 || start > end) {
+    return [];
+  }
+
+  const arr = [];
+
+  for (let date = start; date <= end; date++) {
+    arr.push(
+      {
+        valentinesDay: format(getValentinesDay(date), 'EEEE, dd.MM.yyyy'),
+        easter: format(getEaster(date), 'EEEE, dd.MM.yyyy'),
+        christmas: format(getChristmas(date), 'EEEE, dd.MM.yyyy'),
+      }
+    );
+  }
+
+  return arr;
 }
 
 /**
@@ -42,9 +42,13 @@ export function holidaysInRange(start, end) {
  * This function is imported and called in main.js
  */
 export function main() {
-  const prompt = promptSync();
-  const start = 1970; // FIXME use prompt and parseInt()
-  const end = 1972; // FIXME use prompt and parseInt()
+  let prompt = promptSync();
+  
+  let start = prompt('Enter start: ');
+  let end = prompt('Enter end: ');
+
+  start = parseInt(start);
+  end = parseInt(end);
 
   const holidays = holidaysInRange(start, end);
   console.log(holidays);
